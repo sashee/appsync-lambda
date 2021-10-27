@@ -1,0 +1,13 @@
+type Item {
+	field1: String
+	field2(fieldArg: String): String
+	pipelinefield(pipelineArg: String): String
+}
+
+type Query {
+	function(arg: String): Item
+}
+
+schema {
+	query: Query
+}
