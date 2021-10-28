@@ -119,10 +119,10 @@ resource "aws_appsync_datasource" "lambda" {
 }
 
 # resolvers
-resource "aws_appsync_resolver" "Query_function" {
+resource "aws_appsync_resolver" "Query_item" {
   api_id      = aws_appsync_graphql_api.appsync.id
   type        = "Query"
-  field       = "function"
+  field       = "item"
   data_source = aws_appsync_datasource.lambda.name
   response_template = <<EOF
 {
@@ -130,6 +130,16 @@ resource "aws_appsync_resolver" "Query_function" {
 	"field2": "another test",
 	"arguments": $util.toJson($ctx.arguments)
 }
+EOF
+}
+
+resource "aws_appsync_resolver" "Query_test" {
+  api_id      = aws_appsync_graphql_api.appsync.id
+  type        = "Query"
+  field       = "test"
+  data_source = aws_appsync_datasource.lambda.name
+  response_template = <<EOF
+"test response"
 EOF
 }
 

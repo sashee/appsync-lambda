@@ -5,7 +5,8 @@ type Item {
 }
 
 type Query {
-	function(arg: String): Item
+	item(arg: String): Item
+	test: String
 }
 
 schema {
