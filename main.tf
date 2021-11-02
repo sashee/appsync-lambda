@@ -138,9 +138,6 @@ resource "aws_appsync_resolver" "Query_test" {
   type        = "Query"
   field       = "test"
   data_source = aws_appsync_datasource.lambda.name
-  response_template = <<EOF
-"test response"
-EOF
 }
 
 resource "aws_appsync_resolver" "Item_field1" {
